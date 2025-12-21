@@ -5,6 +5,7 @@ import RiskGauge from "./components/RiskGauge";
 import ModelComparison from "./components/ModelComparison";
 import RecommendationPanel from "./components/RecommendationPanel";
 import "./App.css";
+import { predictRisk } from "./api/riskApi";
 
 const App = () => {
   const [loading, setLoading] = useState(false);
@@ -14,31 +15,32 @@ const App = () => {
     setLoading(true);
 
     // 🔑 MAP FRONTEND → BACKEND SCHEMA
-    const payload = {
-      purpose: formData.loanPurpose,
-      grade: formData.loanGrade,
-      residentialstate: formData.state,
-      homeownership: formData.homeOwnership,
+const handleSubmit = async (formData) => {
+  setLoading(true);
 
-      loanamount: Number(formData.loanAmount),
-      interestrate: Number(formData.interestRate),
-      monthlypayment: Number(formData.monthlyPayment),
-      annualincome: Number(formData.annualIncome),
-      dtiratio: Number(formData.dtiRatio),
-      lengthcredithistory: Number(formData.creditHistoryYears),
-      term_months: Number(formData.loanTerm),
-    };
-
-    const response = await fetch("http://127.0.0.1:8000/predict", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-
-    const data = await response.json();
-    setResult(data);
-    setLoading(false);
+  const payload = {
+    purpose: formData.loanPurpose,
+    grade: formData.loanGrade,
+    residentialstate: formData.state,
+    homeownership: formData.homeOwnership,
+    loanamount: Number(formData.loanAmount),
+    interestrate: Number(formData.interestRate),
+    monthlypayment: Number(formData.monthlyPayment),
+    annualincome: Number(formData.annualIncome),
+    dtiratio: Number(formData.dtiRatio),
+    lengthcredithistory: Number(formData.creditHistoryYears),
+    term_months: Number(formData.loanTerm),
   };
+
+  try {
+    const data = await predictRisk(payload);
+    setResult(data);
+  } catch (err) {
+    alert("Prediction failed. Check inputs or backend.");
+  } finally {
+    setLoading(false);
+  }
+};
 
 return (
     <>
