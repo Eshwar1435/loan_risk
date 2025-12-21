@@ -1,0 +1,78 @@
+body {
+  font-family: Inter, system-ui, sans-serif;
+  background: #f5f7fb;
+  margin: 0;
+}
+
+.header {
+  height: 64px;
+  background: linear-gradient(90deg, #1e293b, #1e40af);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+}
+
+.dashboard-container {
+  max-width: 1400px;
+  margin: 32px auto;
+  padding: 0 20px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.05);
+}
+
+h3 {
+  margin: 0 0 14px 0;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+input, select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+.predict-btn {
+  margin-top: 16px;
+  width: 100%;
+  padding: 12px;
+  background: #1e40af;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.recommendation.low { background: #ecfdf5; }
+.recommendation.medium { background: #fffbeb; }
+.recommendation.high { background: #fef2f2; }
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #22c55e;
+  color: white;
+  font-size: 12px;
+}
