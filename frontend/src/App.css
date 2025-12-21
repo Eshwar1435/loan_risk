@@ -14,6 +14,12 @@
   --warning: #f59e0b;
   --danger: #ef4444;
 }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 
 /* =====================================================
    BASE
@@ -53,7 +59,7 @@ body {
 ===================================================== */
 .grid {
   display: grid;
-  grid-template-columns: 400px 1fr 1fr;
+  grid-template-columns: minmax(320px, 400px) 1fr 1fr;
   gap: 24px;
   padding: 32px 40px;
   align-items: start;
@@ -87,7 +93,7 @@ body {
 ===================================================== */
 .borrower-form-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 
