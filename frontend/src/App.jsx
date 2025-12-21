@@ -11,10 +11,6 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
 
-  const handleSubmit = async (formData) => {
-    setLoading(true);
-
-    // 🔑 MAP FRONTEND → BACKEND SCHEMA
 const handleSubmit = async (formData) => {
   setLoading(true);
 
