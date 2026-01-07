@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FileText, DollarSign, Percent, TrendingUp, Calendar, Target, Tag, Home, MapPin, Loader2 } from "lucide-react";
 
 const BorrowerForm = ({ onSubmit, isLoading }) => {
   const [formData, setFormData] = useState({
@@ -72,13 +73,19 @@ const BorrowerForm = ({ onSubmit, isLoading }) => {
 
   return (
     <div className="card">
-      <h3>📋 Borrower Information</h3>
+      <h3>
+        <FileText size={18} />
+        Borrower Information
+      </h3>
 
       <div className="borrower-form-grid">
 
         {/* Loan Amount */}
         <div className="input-group">
-          <label>$ Loan Amount</label>
+          <label>
+            <DollarSign size={14} />
+            Loan Amount
+          </label>
           <input
             name="loanAmount"
             type="number"
@@ -95,7 +102,10 @@ const BorrowerForm = ({ onSubmit, isLoading }) => {
 
         {/* Interest Rate */}
         <div className="input-group">
-          <label>% Interest Rate</label>
+          <label>
+            <Percent size={14} />
+            Interest Rate
+          </label>
           <input
             name="interestRate"
             type="number"
@@ -114,7 +124,10 @@ const BorrowerForm = ({ onSubmit, isLoading }) => {
 
         {/* Annual Income */}
         <div className="input-group">
-          <label>📈 Annual Income</label>
+          <label>
+            <TrendingUp size={14} />
+            Annual Income
+          </label>
           <input
             name="annualIncome"
             type="number"
@@ -132,7 +145,10 @@ const BorrowerForm = ({ onSubmit, isLoading }) => {
 
         {/* Monthly Payment */}
         <div className="input-group">
-          <label>$ Monthly Payment</label>
+          <label>
+            <DollarSign size={14} />
+            Monthly Payment
+          </label>
           <input
             name="monthlyPayment"
             type="number"
@@ -150,7 +166,10 @@ const BorrowerForm = ({ onSubmit, isLoading }) => {
 
         {/* DTI Ratio */}
         <div className="input-group">
-          <label>% DTI Ratio</label>
+          <label>
+            <Percent size={14} />
+            DTI Ratio
+          </label>
           <input
             name="dtiRatio"
             type="number"
@@ -167,7 +186,10 @@ const BorrowerForm = ({ onSubmit, isLoading }) => {
 
         {/* Credit History */}
         <div className="input-group">
-          <label>⏳ Credit History (Years)</label>
+          <label>
+            <Calendar size={14} />
+            Credit History (Years)
+          </label>
           <input
             name="creditHistoryYears"
             type="number"
@@ -185,7 +207,10 @@ const BorrowerForm = ({ onSubmit, isLoading }) => {
 
         {/* Loan Term */}
         <div className="input-group">
-          <label>📆 Loan Term</label>
+          <label>
+            <Calendar size={14} />
+            Loan Term
+          </label>
           <select
             name="loanTerm"
             required
@@ -199,7 +224,10 @@ const BorrowerForm = ({ onSubmit, isLoading }) => {
 
         {/* Loan Purpose */}
         <div className="input-group">
-          <label>🎯 Loan Purpose</label>
+          <label>
+            <Target size={14} />
+            Loan Purpose
+          </label>
           <select
             name="loanPurpose"
             required
@@ -216,7 +244,10 @@ const BorrowerForm = ({ onSubmit, isLoading }) => {
 
         {/* Loan Grade */}
         <div className="input-group">
-          <label>🏷️ Loan Grade</label>
+          <label>
+            <Tag size={14} />
+            Loan Grade
+          </label>
           <select
             name="loanGrade"
             required
@@ -232,7 +263,10 @@ const BorrowerForm = ({ onSubmit, isLoading }) => {
 
         {/* Home Ownership */}
         <div className="input-group">
-          <label>🏠 Home Ownership</label>
+          <label>
+            <Home size={14} />
+            Home Ownership
+          </label>
           <select
             name="homeOwnership"
             required
@@ -247,7 +281,10 @@ const BorrowerForm = ({ onSubmit, isLoading }) => {
 
         {/* State */}
         <div className="input-group">
-          <label>📍 State</label>
+          <label>
+            <MapPin size={14} />
+            State
+          </label>
           <select
             name="state"
             required
@@ -267,8 +304,19 @@ const BorrowerForm = ({ onSubmit, isLoading }) => {
         className="btn-primary"
         onClick={handleSubmit}
         disabled={isLoading}
+        aria-label="Predict credit risk"
       >
-        {isLoading ? "Analyzing..." : "📑 Predict Risk"}
+        {isLoading ? (
+          <>
+            <Loader2 size={18} className="loading-spinner" />
+            Analyzing...
+          </>
+        ) : (
+          <>
+            <FileText size={18} />
+            Predict Risk
+          </>
+        )}
       </button>
     </div>
   );

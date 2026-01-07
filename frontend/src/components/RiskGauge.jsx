@@ -1,4 +1,5 @@
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
+import { TrendingUp } from "lucide-react";
 
 const RiskGauge = ({ probability }) => {
   const data = [
@@ -22,7 +23,10 @@ const RiskGauge = ({ probability }) => {
 
   return (
     <div className="card">
-      <h3>📈 Default Probability</h3>
+      <h3>
+        <TrendingUp size={18} />
+        Default Probability
+      </h3>
       <p
         style={{
           fontSize: "12px",

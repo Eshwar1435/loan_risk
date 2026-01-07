@@ -1,4 +1,5 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, LabelList } from "recharts";
+import { BarChart3, Star } from "lucide-react";
 
 const ModelComparison = ({ logistic, xgboost, lightgbm }) => {
   const data = [
@@ -20,12 +21,18 @@ const ModelComparison = ({ logistic, xgboost, lightgbm }) => {
     <div className="card">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
         <div>
-          <h3>📊 Model Comparison</h3>
+          <h3>
+            <BarChart3 size={18} />
+            Model Comparison
+          </h3>
           <p style={{ fontSize: '12px', color: '#64748b', marginTop: '-12px' }}>
             Compare default probability across different ML models
           </p>
         </div>
-        <div className="badge badge-final">⭐ LightGBM = Final Model</div>
+        <div className="badge badge-final">
+          <Star size={12} />
+          LightGBM = Final Model
+        </div>
       </div>
 
       <ResponsiveContainer width="100%" height={200}>
